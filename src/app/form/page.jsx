@@ -1,97 +1,118 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
-import { Textarea } from "../../components/ui/textarea";
+import { IoIosReturnLeft } from "react-icons/io";
+
+import { useForm } from "react-hook-form";
 
 export default function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmitFx = (data) => console.log(data);
+
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-primary-color">
-      <header className="flex items-center py-4 lg:py-6 xl:py-4 sticky top-0 backdrop-blur-sm bg-color-header-footer z-10 ">
-        <div className="container flex items-center gap-4 px-4 lg:px-6 xl:gap-6">
-          <Link className="flex items-center gap-2 font-semibold" href="#">
-            <img src="/logo/logoterrario.png" width={80} />
-          </Link>
-          <nav className="ml-auto space-x-4 text-lg">
-            <Link
-              className="font-medium transition-colors text-gray-500 hover:text-primary-color dark:text-gray-400 dark:hover:text-gray-50"
-              href="/"
-            >
-              Início
-            </Link>
-            <Link
-              className="font-medium transition-colors text-gray-500 hover:text-primary-color dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              Produtos
-            </Link>
+    <div className="flex flex-col p-4 bg-gradient-to-br from-primary-color">
+      <Link
+        href="/"
+        className="w-fit p-2 bg-white border-2 rounded-2xl font-bold"
+      >
+        <p>Voltar</p>
+        <IoIosReturnLeft style={{ fontSize: 22 }} />
+      </Link>
 
-            <Link
-              className="font-medium transition-colors text-gray-500 hover:text-primary-color dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              Contato
-            </Link>
-          </nav>
-        </div>
-      </header>
-
-      <form className="grid max-w-lg gap-4 mx-auto my-10 border-2 rounded-lg p-4 bg-white">
-        <h1 className="text-xl ">
+      <form
+        onSubmit={handleSubmit(onSubmitFx)}
+        className="flex flex-col max-w-lg gap-4 space-y-2 mx-auto my-14 border-2 rounded-lg p-4 bg-white lg:text-2xl lg:gap-6"
+      >
+        <h1 className="text-xl lg:text-3xl lg:mb-4 font-bold">
           Preencha o formulário para receber seu orçamento personalizado 🌿🍃
         </h1>
-        <label htmlFor="">Nome completo</label>
-        <Input placeholder="Seu nome aqui." type="text" />
-        <label htmlFor="">Celular/WhatsApp</label>
-        <Input placeholder="+55 (99) 99999-9999" type="text" />
-        <label htmlFor="">Espécie do seu animal</label>
-        <Input placeholder="Insira a espécie do seu animal aqui" type="text" />
-
-        <label htmlFor="">Insira seu CEP para calcularmos o frete.</label>
-        <Input placeholder="EX: 01001-000." type="text" />
+        <div>
+          <label>Nome completo</label>
+          <Input
+            placeholder="Seu nome aqui."
+            type="text"
+            {...register("name", { required: true })}
+          />
+          {errors.name?.type === "required" && (
+            <p className="text-xs text-[#CF2C20]">Informe seu nome.</p>
+          )}
+        </div>
+        <div>
+          <label>Celular/WhatsApp</label>
+          <Input
+            placeholder="+55 (99) 99999-9999"
+            type="text"
+            {...register("contact", { required: true })}
+          />
+          {errors.contact?.type === "required" && (
+            <p className="text-xs text-[#CF2C20]">
+              Informe um telefone para contato.
+            </p>
+          )}
+        </div>
+        <div>
+          <label>Espécie do seu animal</label>
+          <Input
+            placeholder="Insira a espécie do seu animal aqui"
+            type="text"
+            {...register("animal", { required: true })}
+          />
+          {errors.animal?.type === "required" && (
+            <p className="text-xs text-[#CF2C20]">
+              Informe a espécie do seu pet.
+            </p>
+          )}
+        </div>
+        <div>
+          <label>O que está buscando?</label>
+          <select
+            defaultValue={"default"}
+            className="text-sm lg:text-xl"
+            {...register("product", {
+              required: true,
+              validate: (value) => value !== "default",
+            })}
+          >
+            <option value="default" disabled={true}>
+              Selecione uma opção.
+            </option>
+            <option value="Terrario Completo">Terrário Completo</option>
+            <option value="Terrario Horizontal">Terrário Horizontal</option>
+            <option value="Terrario Arborícola">Terrário Arborícola</option>
+            <option value="Terrario Completo">Aquaterrários</option>
+            <option value="Decoracao de Terrario">Decoração de terrário</option>
+            <option value="outro">Outro</option>
+          </select>
+          {errors.product?.type === "validate" && (
+            <p className="text-xs text-[#CF2C20]">
+              Selecione uma das opções acima.
+            </p>
+          )}
+        </div>
+        <div>
+          <label>Insira seu CEP para calcularmos o frete.</label>
+          <Input
+            placeholder="EX: 01001-000."
+            type="text"
+            {...register("cep", { required: true })}
+          />
+          {errors.cep?.type === "required" && (
+            <p className="text-xs text-[#CF2C20]">
+              O CEP é necessário para realizarmos o cálculo do frete.
+            </p>
+          )}
+        </div>
         <Button className="w-full" type="submit">
           Enviar
         </Button>
       </form>
-      <footer className="pt-12 md:pb-10 backdrop-blur-sm bg-color-header-footer">
-        <div className="container flex flex-col items-center justify-center gap-4 px-4 text-center md:px-6 md:flex-row md:gap-10 lg:gap-16">
-          <nav className="flex flex-col text-start gap-4 text-sm lg:gap-6 ">
-            <Link className="font-medium" href="#">
-              Endereço
-            </Link>
-            <Link className="font-medium" href="#">
-              Email
-            </Link>
-            <Link className="font-medium" href="#">
-              Telefone
-            </Link>
-            <Link className="font-medium" href="#">
-              Horário de funcionamento
-            </Link>
-          </nav>
-          <Link
-            className="ml-auto flex flex-col items-center gap-2 font-semibold text-xl"
-            href="#"
-          >
-            <span className="text-primary-color text-4xl">Nature BIO</span>
-            <span className="text-tertiary-color">Terrários</span>
-          </Link>
-
-          <div className="grid gap-4 text-center md:ml-auto lg:gap-6">
-            <Link
-              className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <span>Instagram</span>
-            </Link>
-            <Link
-              className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <span>Whatsapp</span>
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
