@@ -8,7 +8,7 @@ export const Products = () => {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Conheça Nossos Terrários
           </h2>
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             O ambiente mais natural possível que seu pet precisa 🌿🍃
           </p>
         </div>
@@ -23,9 +23,7 @@ export const Products = () => {
             />
             <div className="text-left">
               <h3 className="text-2xl font-bold">Terrários Arborícolas</h3>
-              <p className="text-gray-500 dark:text-gray-400 font-bold text-lg">
-                Saiba mais
-              </p>
+              <p className="text-gray-500 font-bold text-lg">Saiba mais</p>
             </div>
           </div>
           <div className="flex flex-col  gap-2">
@@ -38,9 +36,7 @@ export const Products = () => {
             />
             <div className="text-left">
               <h3 className="text-2xl font-bold">Terrários Horizontais</h3>
-              <p className="text-gray-500 dark:text-gray-400 font-bold text-lg">
-                Saiba mais
-              </p>
+              <p className="text-gray-500 font-bold text-lg">Saiba mais</p>
             </div>
           </div>
           <div className="flex flex-col  gap-2">
@@ -53,9 +49,7 @@ export const Products = () => {
             />
             <div className="text-left">
               <h3 className="text-2xl font-bold">Terrários Decorados </h3>
-              <p className="text-gray-500 dark:text-gray-400 font-bold text-lg">
-                Saiba mais
-              </p>
+              <p className="text-gray-500 font-bold text-lg">Saiba mais</p>
             </div>
           </div>
           <div className="flex flex-col  gap-2">
@@ -68,9 +62,7 @@ export const Products = () => {
             />
             <div className="text-left">
               <h3 className="text-2xl font-bold">Aquaterrários</h3>
-              <p className="text-gray-500 dark:text-gray-400 font-bold text-lg">
-                Saiba mais
-              </p>
+              <p className="text-gray-500 font-bold text-lg">Saiba mais</p>
             </div>
           </div>
         </div>
