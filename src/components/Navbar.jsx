@@ -19,7 +19,7 @@ export const Navbar = () => {
           <ul className="flex gap-2 lg:gap-6">
             <li className="hidden lg:flex ">
               <Link
-                className="font-medium transition-color hover:text-primary-color dark:text-gray-400 dark:hover:text-gray-50"
+                className="font-medium transition-color hover:text-primary-color"
                 href="/"
               >
                 Início
@@ -27,7 +27,7 @@ export const Navbar = () => {
             </li>
             <li>
               <Link
-                className="border-2 p-2 rounded-lg bg-primary-color text-black font-medium transition-color hover:text-secondary-color dark:text-gray-400 dark:hover:text-gray-50"
+                className="border-2 p-2 rounded-lg bg-primary-color text-black font-medium transition-color hover:text-secondary-color"
                 href="/form"
               >
                 Orçamento
@@ -35,7 +35,7 @@ export const Navbar = () => {
             </li>
             <li className="hidden lg:flex">
               <Link
-                className="font-medium transition-color hover:text-primary-color dark:text-gray-400 dark:hover:text-gray-50"
+                className="font-medium transition-color hover:text-primary-color"
                 href="https://wa.me/5521996178510?text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+terr%C3%A1rios."
                 target="blank"
               >

@@ -6,7 +6,7 @@ export const Review = () => {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Clientes Satisfeitos
           </h2>
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Nossos terrários trazem alegria para os pets de todo o Brasil! Veja
             o que nossos clientes estão falando.
           </p>
@@ -15,7 +15,7 @@ export const Review = () => {
           <div className="flex flex-col items-center gap-2">
             <img
               alt="Avatar"
-              className="rounded-full border border-gray-200 object-cover object-center dark:border-gray-800"
+              className="rounded-full border border-gray-200 object-cover object-center"
               height="400"
               src="/placeholder.svg"
               style={{
@@ -26,7 +26,7 @@ export const Review = () => {
             />
             <div className="space-y-2 text-left">
               <h3 className="text-2xl font-bold">Cliente 1.</h3>
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-gray-500">
                 "Lorem ipsum dolor sit amet. 33 quae tenetur eum quisquam porro
                 et rerum voluptatibus At impedit animi ex exercitationem
                 consequatur aut debitis omnis quo dolore vitae! Qui quaerat quia
@@ -38,7 +38,7 @@ export const Review = () => {
           <div className="flex flex-col items-center gap-2">
             <img
               alt="Avatar"
-              className="rounded-full border border-gray-200 object-cover object-center dark:border-gray-800"
+              className="rounded-full border border-gray-200 object-cover object-center"
               height="400"
               src="/placeholder.svg"
               style={{
@@ -49,7 +49,7 @@ export const Review = () => {
             />
             <div className="space-y-2 text-left">
               <h3 className="text-2xl font-bold">Cliente 2.</h3>
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-gray-500">
                 "Lorem ipsum dolor sit amet. 33 quae tenetur eum quisquam porro
                 et rerum voluptatibus At impedit animi ex exercitationem
                 consequatur aut debitis omnis quo dolore vitae! Qui quaerat quia

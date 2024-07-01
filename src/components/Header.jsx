@@ -30,7 +30,7 @@ export const Header = () => {
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Terrários Artesanais
           </h1>
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Adicione um toque de{" "}
             <span className="text-primary-color font-bold">natureza</span> à sua
             casa com nossos terrários exclusivos.
