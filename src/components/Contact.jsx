@@ -5,15 +5,33 @@ import { Textarea } from "../components/ui/textarea";
 import { Button } from "../components/ui/button";
 
 import { useForm } from "react-hook-form";
+import { useRef } from "react";
 
 export const Contact = () => {
+  const form = useRef();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmitFx = (data) => console.log(data);
+  const onSubmitFx = () => {
+    console.log(form.current);
+
+    emailjs
+      .sendForm("service_3whjnik", "template_oiov7fc", form.current, {
+        publicKey: "spveiFpEUltnCi9pZ",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
+  };
 
   return (
     <section className="flex flex-col items-center gap-24 py-12 md:py-24 lg:py-32">

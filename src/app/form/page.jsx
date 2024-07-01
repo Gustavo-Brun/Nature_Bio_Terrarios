@@ -6,15 +6,35 @@ import { Input } from "../../components/ui/input";
 import { IoIosReturnLeft } from "react-icons/io";
 
 import { useForm } from "react-hook-form";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Form() {
+  const form = useRef();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmitFx = (data) => console.log(data);
+  const onSubmitFx = () => {
+    {
+      /*emailjs
+      .sendForm("service_3whjnik", "template_oiov7fc", form.current, {
+        publicKey: "spveiFpEUltnCi9pZ",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );*/
+    }
+    console.log(form.current);
+  };
 
   return (
     <div className="flex flex-col p-4 bg-gradient-to-br from-primary-color">
@@ -27,6 +47,7 @@ export default function Form() {
       </Link>
 
       <form
+        ref={form}
         onSubmit={handleSubmit(onSubmitFx)}
         className="flex flex-col max-w-lg gap-4 space-y-2 mx-auto my-14 border-2 rounded-lg p-4 bg-white lg:text-2xl lg:gap-6"
       >
